@@ -58,6 +58,9 @@ Ministerio = Ministerio.reset_index(drop=True)
 Ministerio = Ministerio['Ministerio'].tolist()
 
 #------------------------------------------------------------------------
+# valores
+total_nombrados=data.query("Estado=='Nombrado'").count()
+
 #------------------------------------------------------------------------
 # Filtros
 with st.container():
@@ -81,6 +84,11 @@ graf_1.update_traces(texttemplate='%{text}', textposition='outside')
 
 
 with st.container():
+    col3, col4=st.columns(spec=[0.2,0.8])
+    with col3:
+        total_nombrados_I_II = f"{total_nombrados:,}"
+        st.markdown(f"<h1 style='text-align: center; color: grey;'>{total_nombrados_I_II}</h1>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; color: grey;'>Total Nombrados/as en cargos de I y II nivel jerárquico</h3>", unsafe_allow_html=True)
 #    st.dataframe(df_total)
     st.plotly_chart(graf_1,use_container_width=True)
 
