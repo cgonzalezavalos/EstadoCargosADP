@@ -68,8 +68,12 @@ with st.container():
 
 # gráfico 1 estado de cargos I y II nivel adscrito
 
-df_total=data.groupby('Estado')['id_cargo'].count()
+df_total=data.groupby('Estado').agg({'id_cargo':'count'})
+df_total=df_total.rename(columns={'id_cargo':'cargos'})
+
+graf_1=px.bar(df_total,x='Estado',y='cargos').update_xaxes(title_text=None,tickmode='linear', dtick=1,tickangle=-90)
 
 with st.container():
-    st.dataframe(df_total)
+    st.plotly_chart(graf_1,use_container_width=True)
+
     
