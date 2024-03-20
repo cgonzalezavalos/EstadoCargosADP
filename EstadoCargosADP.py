@@ -8,7 +8,7 @@ import plotly.express as px
 data=pd.read_excel('datos/datosEstadoCargosADP.xlsx',sheet_name='datos')
 #------------------------------------------------------------------------
 # Fecha Actualizacion
-fecha_actualizacion=data['Fecha_Actualizacion'].max()
+fecha_actualizacion=data['FechaActualizacion'].max()
 #------------------------------------------------------------------------
 
 st.set_page_config(layout='wide')
