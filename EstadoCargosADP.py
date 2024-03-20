@@ -12,7 +12,7 @@ fecha_actualizacion=data['FechaActualizacion'].max()
 #------------------------------------------------------------------------
 
 st.set_page_config(layout='wide',
-                   initial_sidebar_state="collapsed")    
+                   initial_sidebar_state="expanded")    
 
 # Set Page Header
 st.header("Estado Cargos Sistema Alta Dirección Pública")
