@@ -99,7 +99,8 @@ graf_2=px.pie(df_total, values='cargos',
                 title='Estado de cargos en porcentaje',
                 category_orders={'Estado': Estados_Orden},
                 color='Estado',
-                color_discrete_map=Estado_Color)
+                color_discrete_map=Estado_Color,
+                hole=0.4,)
 
 
 with st.container():
@@ -122,4 +123,6 @@ with st.container():
 with st.container():
     st.plotly_chart(graf_2,use_container_width=True)
 
-    
+texto_foot_1="""Morandé 115, P.9, Santiago, Chile. Fono(56 2) 2873 4400"""
+texto_foot_2="""Consulta"""
+st.caption(texto_foot_1, unsafe_allow_html=False, help=None)    
