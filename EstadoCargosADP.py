@@ -11,7 +11,8 @@ data=pd.read_excel('datos/datosEstadoCargosADP.xlsx',sheet_name='datos')
 fecha_actualizacion=data['FechaActualizacion'].max()
 #------------------------------------------------------------------------
 
-st.set_page_config(layout='wide')
+st.set_page_config(layout='wide',
+                   initial_sidebar_state="collapsed")    
 
 # Set Page Header
 st.header("Estado Cargos Sistema Alta Dirección Pública")
