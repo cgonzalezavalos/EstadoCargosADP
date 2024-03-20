@@ -101,7 +101,7 @@ graf_2=px.pie(df_total, values='cargos',
                 color='Estado',
                 color_discrete_map=Estado_Color,
                 hole=0.4,)
-graf_2.update_layout(showlegend=False)
+#graf_2.update_layout(showlegend=False)
 
 
 with st.container():
@@ -128,7 +128,7 @@ with st.container():
 
     
 
-texto_foot_1="""Dirección Nacional del Servicio Civil, Morandé 115, P.9, Santiago, Chile. Fono(56 2) 2873 4400"""
-texto_foot_2="""Consultas a: <a href='mailto:cgonzalez@serviciocivil.cl'>"""
+texto_foot_1="""Dirección Nacional del Servicio Civil, Morandé 115, P.9, Santiago, Chile."""
+texto_foot_2 = """Consultas a: <a href='mailto:cgonzalez@serviciocivil.cl'>cgonzalez@serviciocivil.cl</a>"""
 st.caption(texto_foot_1, unsafe_allow_html=False, help=None)    
 st.caption(texto_foot_2, unsafe_allow_html=True, help=None)
