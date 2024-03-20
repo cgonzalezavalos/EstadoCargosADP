@@ -119,10 +119,14 @@ with st.container():
         st.markdown("<h3 style='text-align: center; color: grey;'>Total mujeres nombradas actualmente en cargos de I y II nivel jerárquico</h3>", unsafe_allow_html=True)
 #    st.dataframe(df_total)
 with st.container():
-    st.plotly_chart(graf_1,use_container_width=True)
-with st.container():
-    st.plotly_chart(graf_2,use_container_width=True)
+    col6,col7=st.columns(spec=[0.3,0.7])
+    with col6:
+        st.plotly_chart(graf_2,use_container_width=True)
+    with col7:
+        st.plotly_chart(graf_1,use_container_width=True)
+
+    
 
 texto_foot_1="""Morandé 115, P.9, Santiago, Chile. Fono(56 2) 2873 4400"""
-texto_foot_2="""Consulta"""
+texto_foot_2="""Consultas a: <a href='mailto:cgonzalez@serviciocivil.cl'>"""
 st.caption(texto_foot_1, unsafe_allow_html=False, help=None)    
