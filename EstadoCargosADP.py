@@ -3,6 +3,14 @@ import pandas as pd
 import plotly.express as px
 
 
+# carga de datos
+#------------------------------------------------------------------------
+data=pd.read_excel('datos/datosEstadoCargosADP.xlsx',sheet_name='datos')
+#------------------------------------------------------------------------
+# Fecha Actualizacion
+fecha_actualizacion=data['Fecha_Actualizacion'].max()
+#------------------------------------------------------------------------
+
 st.set_page_config(layout='wide')
 
 # Set Page Header
@@ -22,14 +30,11 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
+st.caption(f'Fecha de actualización: _{fecha_actualizacion}_')
 # Add horizontal line
 st.markdown("<hr>", unsafe_allow_html=True)
 
-# carga de datos
-#------------------------------------------------------------------------
-data=pd.read_excel('datos/datosEstadoCargosADP.xlsx',sheet_name='datos')
-#------------------------------------------------------------------------
+
 # colores y orden de los estados
 Estados_Orden=['Planificación','Convocatoria','En Evaluación','Nómina','Nombrado','Titular No ADP']
 Estado_Color = {'Planificación': 'orange', 'Convocatoria': 'blue','En Evaluación':'grey','Nómina':'yellow','Nombrado':'green','Titular No ADP':'red'}  # Mapeo de colores por sexo
