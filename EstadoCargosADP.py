@@ -35,10 +35,18 @@ st.caption(f'Fecha de actualización: _{fecha_actualizacion}_')
 # Add horizontal line
 st.markdown("<hr>", unsafe_allow_html=True)
 
-
 # colores y orden de los estados
 Estados_Orden=['Planificación','Convocatoria','En Evaluación','Nómina','Nombrado','Titular No ADP']
 Estado_Color = {'Planificación': 'orange', 'Convocatoria': 'blue','En Evaluación':'grey','Nómina':'yellow','Nombrado':'#00f118','Titular No ADP':'red'}  # Mapeo de colores por sexo
+
+
+with st.sidebar:
+    Genero = st.radio(
+        "Ver estadisticas de cargos nombrados desagregados por sexo",("Si", "No")
+    )
+    Detalle = st.radio('Ver detalle de cargos nombrados',("Si", "No"))
+
+
 
 #------------------------------------------------------------------------
 # listas valores filtros
