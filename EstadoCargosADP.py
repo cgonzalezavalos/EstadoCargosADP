@@ -78,7 +78,7 @@ df_total=data.groupby('Estado').agg({'id_cargo':'count'}).reset_index()
 df_total=df_total.rename(columns={'id_cargo':'cargos'})
 
 # gráfico 1 estado de cargos I y II nivel adscrito
-graf_1 = px.bar(df_total, x='Estado', y='cargos', category_orders={'Estado': Estados_Orden},color_discrete_map=[Estado_Color])
+graf_1 = px.bar(df_total, x='Estado', y='cargos', category_orders={'Estado': Estados_Orden},color_discrete_sequence=[Estado_Color])
 graf_1.update_xaxes(title_text=None,tickmode='linear', dtick=1,tickangle=-90)
 
 
