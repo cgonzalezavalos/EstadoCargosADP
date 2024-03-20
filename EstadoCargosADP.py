@@ -65,5 +65,12 @@ with st.container():
     with col3:
         option3=st.selectbox('Sexo', Sexo)
 
+
+
+# gráfico 1 estado de cargos I y II nivel adscrito
+
+df_total=data.groupby('Estado').count()
+
 with st.container():
-    st.dataframe(data.head(10))
+    st.dataframe(df_total)
+    
