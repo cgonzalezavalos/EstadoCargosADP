@@ -86,7 +86,7 @@ graf_1.update_xaxes(title_text=None,tickmode='linear', dtick=1,tickangle=-90)
 
 
 with st.container():
-    col3, col4, col5=st.columns(spec=[0.5,0.25,0.25])
+    col3, col4, col5=st.columns(spec=[0.3,0.35,0.35])
     with col3:
         total_nombrados_I_II = f"{total_nombrados}"
         st.markdown(f"<h1 style='text-align: center; color: grey;'>{total_nombrados_I_II}</h1>", unsafe_allow_html=True)
