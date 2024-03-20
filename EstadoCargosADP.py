@@ -30,8 +30,9 @@ st.markdown("<hr>", unsafe_allow_html=True)
 #------------------------------------------------------------------------
 data=pd.read_excel('datos/datosEstadoCargosADP.xlsx',sheet_name='datos')
 #------------------------------------------------------------------------
-# orden de los estados
+# colores y orden de los estados
 Estados_Orden=['Planificación','Convocatoria','En Evaluación','Nómina','Nombrado','Titular No ADP']
+Estado_Color = {'Planificación': 'orange', 'Convocatoria': 'blue','En Evaluación':'grey','Nómina':'yellow','Nombrado':'green','Titular No ADP':'red'}  # Mapeo de colores por sexo
 
 #------------------------------------------------------------------------
 # listas valores filtros
@@ -77,7 +78,7 @@ df_total=data.groupby('Estado').agg({'id_cargo':'count'}).reset_index()
 df_total=df_total.rename(columns={'id_cargo':'cargos'})
 
 # gráfico 1 estado de cargos I y II nivel adscrito
-graf_1 = px.bar(df_total, x='Estado', y='cargos', category_orders={'Estado': Estados_Orden})
+graf_1 = px.bar(df_total, x='Estado', y='cargos', category_orders={'Estado': Estados_Orden},color_discrete_map=[Estado_Color])
 graf_1.update_xaxes(title_text=None,tickmode='linear', dtick=1,tickangle=-90)
 
 
