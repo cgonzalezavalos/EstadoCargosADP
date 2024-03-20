@@ -73,16 +73,17 @@ with st.container():
         option2=st.selectbox('Región',region)
 
 
-
-
-# gráfico 1 estado de cargos I y II nivel adscrito
-
 df_total=data.groupby('Estado').agg({'id_cargo':'count'}).reset_index()
 df_total=df_total.rename(columns={'id_cargo':'cargos'})
 
+# gráfico 1 estado de cargos I y II nivel adscrito
 graf_1 = px.bar(df_total, x='Estado', y='cargos', category_orders={'Estado': Estados_Orden})
 graf_1.update_xaxes(title_text=None,tickmode='linear', dtick=1,tickangle=-90)
-#graf_1.update_traces(texttemplate='%{text}', textposition='outside')
+
+
+# grafico 2 porcentaje estado de cargos
+
+graf_2 = px.pie(data, values='cargos', names='Estado', title='Estado de cargos en porcentaje')
 
 
 with st.container():
@@ -102,5 +103,7 @@ with st.container():
 #    st.dataframe(df_total)
 with st.container():
     st.plotly_chart(graf_1,use_container_width=True)
+with st.container():
+    st.plotly_chart(graf_2,use_container_width=True)
 
     
