@@ -87,7 +87,11 @@ graf_1.update_xaxes(title_text=None,tickmode='linear', dtick=1,tickangle=-90)
 
 # grafico 2 porcentaje estado de cargos
 
-graf_2 = px.pie(df_total, values='cargos', names='Estado', title='Estado de cargos en porcentaje',category_orders={'Estado': Estados_Orden})
+graf_2 = px.pie(df_total, values='cargos', 
+                names='Estado', 
+                title='Estado de cargos en porcentaje',
+                category_orders={'Estado': Estados_Orden},
+                color_discrete_sequence=[Estado_Color])
 
 
 with st.container():
