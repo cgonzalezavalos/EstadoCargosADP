@@ -60,6 +60,8 @@ Ministerio = Ministerio['Ministerio'].tolist()
 #------------------------------------------------------------------------
 # valores
 total_nombrados=data.query("Estado=='Nombrado'")['id_cargo'].count()
+total_nombrados_hombres=data.query("Estado=='Nombrado' & Sexo=='Hombre'")['id_cargo'].count()
+total_nombrados_mujeres=data.query("Estado=='Nombrado' & Sexo=='Mujer'")['id_cargo'].count()
 
 #------------------------------------------------------------------------
 # Filtros
@@ -84,11 +86,19 @@ graf_1.update_traces(texttemplate='%{text}', textposition='outside')
 
 
 with st.container():
-    col3, col4=st.columns(spec=[0.2,0.8])
+    col3, col4, col5=st.columns(spec=[0.5,0.25,0.25])
     with col3:
         total_nombrados_I_II = f"{total_nombrados}"
         st.markdown(f"<h1 style='text-align: center; color: grey;'>{total_nombrados_I_II}</h1>", unsafe_allow_html=True)
-        st.markdown("<h3 style='text-align: center; color: grey;'>Total Nombrados/as en cargos de I y II nivel jerárquico</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; color: grey;'>Total nombrados/as en cargos de I y II nivel jerárquico</h3>", unsafe_allow_html=True)
+    with col4:
+        total_nombrados_I_II_hombre = f"{total_nombrados_hombres}"
+        st.markdown(f"<h1 style='text-align: center; color: grey;'>{total_nombrados_hombres}</h1>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; color: grey;'>Total hombres nombrados actualmente en cargos de I y II nivel jerárquico</h3>", unsafe_allow_html=True)
+    with col5:
+        total_nombrados_I_II_mujer = f"{total_nombrados_mujeres}"
+        st.markdown(f"<h1 style='text-align: center; color: grey;'>{total_nombrados_mujeres}</h1>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; color: grey;'>Total mujeres nombradas actualmente en cargos de I y II nivel jerárquico</h3>", unsafe_allow_html=True)
 #    st.dataframe(df_total)
     st.plotly_chart(graf_1,use_container_width=True)
 
