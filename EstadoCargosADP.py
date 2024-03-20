@@ -103,7 +103,7 @@ graf_2=px.pie(df_total, values='cargos',
             color='Estado',
             color_discrete_map=Estado_Color,
             hole=0.4,
-            title='Distribución de Cargos Adscritos por Estado')
+            title='Distribución de Cargos Adscritos por Estado',)
 #graf_2.update_layout(showlegend=False)
 
 
