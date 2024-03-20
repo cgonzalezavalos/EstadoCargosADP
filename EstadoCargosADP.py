@@ -71,9 +71,10 @@ with st.container():
 df_total=data.groupby('Estado').agg({'id_cargo':'count'})
 df_total=df_total.rename(columns={'id_cargo':'cargos'})
 
-graf_1=px.bar(df_total,x='Estado',y='cargos').update_xaxes(title_text=None,tickmode='linear', dtick=1,tickangle=-90)
+#graf_1=px.bar(df_total,x='Estado',y='cargos').update_xaxes(title_text=None,tickmode='linear', dtick=1,tickangle=-90)
 
 with st.container():
-    st.plotly_chart(graf_1,use_container_width=True)
+    st.dataframe(df_total)
+ #   st.plotly_chart(graf_1,use_container_width=True)
 
     
