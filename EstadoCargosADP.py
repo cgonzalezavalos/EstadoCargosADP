@@ -98,12 +98,11 @@ graf_1.update_xaxes(title_text=None,tickmode='linear', dtick=1,tickangle=-90)
 
 graf_2=px.pie(df_total, values='cargos', 
             names='Estado', 
-            title='Estado de cargos en porcentaje',
+            title='Distribución de Cargos Adscritos por Estado',
             category_orders={'Estado': Estados_Orden},
             color='Estado',
             color_discrete_map=Estado_Color,
-            hole=0.4,
-            title='Distribución de Cargos Adscritos por Estado',)
+            hole=0.4,)
 #graf_2.update_layout(showlegend=False)
 
 
