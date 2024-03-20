@@ -37,12 +37,12 @@ Estado_Color = {'Planificación': 'orange', 'Convocatoria': 'blue','En Evaluaci�
 #------------------------------------------------------------------------
 # listas valores filtros
 #------------------------------------------------------------------------
-unique_sexo = data['Sexo'].unique()
-Sexo = pd.DataFrame({'Sexo': unique_sexo})
-nuevo_registro = pd.DataFrame({'Sexo': ['Todos']})
-rango_etario = pd.concat([nuevo_registro, Sexo])
-Sexo = Sexo.reset_index(drop=True)
-Sexo = Sexo['Sexo'].tolist()
+unique_nivel = data['Nivel'].unique()
+nivel = pd.DataFrame({'Sexo': unique_nivel})
+nuevo_registro = pd.DataFrame({'Nivel': ['Todos']})
+nivel = pd.concat([nuevo_registro, nivel])
+nivel = nivel.reset_index(drop=True)
+nivel = nivel['Nivel'].tolist()
 
 unique_region = data['Region'].unique()
 region = pd.DataFrame({'Region': unique_region})
@@ -67,11 +67,13 @@ total_nombrados_mujeres=data.query("Estado=='Nombrado' & Sexo=='Mujer'")['id_car
 #------------------------------------------------------------------------
 # Filtros
 with st.container():
-    col1,col2=st.columns(2)
+    col1,col2,col3=st.columns(3)
     with col1:
         option1=st.selectbox('Ministerio',Ministerio)
     with col2:
         option2=st.selectbox('Región',region)
+    with col3:
+        option3=st.selectbox('Nivel Jerárquico',nivel)
 
 
 df_total=data.groupby('Estado').agg({'id_cargo':'count'}).reset_index()
