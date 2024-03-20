@@ -27,7 +27,11 @@ st.markdown(
 st.markdown("<hr>", unsafe_allow_html=True)
 
 # carga de datos
+#------------------------------------------------------------------------
 data=pd.read_excel('datos/datosEstadoCargosADP.xlsx',sheet_name='datos')
+#------------------------------------------------------------------------
+# orden de los estados
+Estados_Orden=['Planificación','Convocatoria','En Evaluación','Nómina','Nombrado','Titular No ADP']
 
 #------------------------------------------------------------------------
 # listas valores filtros
@@ -71,7 +75,9 @@ with st.container():
 df_total=data.groupby('Estado').agg({'id_cargo':'count'}).reset_index()
 df_total=df_total.rename(columns={'id_cargo':'cargos'})
 
-graf_1=px.bar(df_total,x='Estado',y='cargos').update_xaxes(title_text=None,tickmode='linear', dtick=1,tickangle=-90)
+graf_1 = px.bar(df_total, x='Estado', y='cargos', category_orders={'Estado': Estados_Orden})
+graf_1.update_xaxes(title_text=None,tickmode='linear', dtick=1,tickangle=-90)
+
 
 with st.container():
 #    st.dataframe(df_total)
