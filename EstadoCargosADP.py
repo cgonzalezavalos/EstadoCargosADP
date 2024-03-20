@@ -69,7 +69,7 @@ with st.container():
 
 # gráfico 1 estado de cargos I y II nivel adscrito
 
-df_total=data.groupby('Estado').count()
+df_total=data.groupby('Estado')['id_cargo'].count()
 
 with st.container():
     st.dataframe(df_total)
