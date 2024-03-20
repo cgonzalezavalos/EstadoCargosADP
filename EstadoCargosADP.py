@@ -90,7 +90,7 @@ with st.container():
     with col3:
         total_nombrados_I_II = f"{total_nombrados}"
         st.markdown(f"<h1 style='text-align: center; color: grey;'>{total_nombrados_I_II}</h1>", unsafe_allow_html=True)
-        st.markdown("<h3 style='text-align: center; color: grey;'>Total nombrados/as en cargos de I y II nivel jerárquico</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; color: grey;'>Total nombrados/as actualmente en cargos de I y II nivel jerárquico</h3>", unsafe_allow_html=True)
     with col4:
         total_nombrados_I_II_hombre = f"{total_nombrados_hombres}"
         st.markdown(f"<h1 style='text-align: center; color: grey;'>{total_nombrados_hombres}</h1>", unsafe_allow_html=True)
