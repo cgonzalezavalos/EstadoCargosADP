@@ -40,11 +40,11 @@ Estados_Orden=['Planificación','Convocatoria','En Evaluación','Nómina','Nombr
 Estado_Color = {'Planificación': 'orange', 'Convocatoria': 'blue','En Evaluación':'grey','Nómina':'yellow','Nombrado':'#00f118','Titular No ADP':'red'}  # Mapeo de colores por sexo
 
 
-with st.sidebar:
-    Genero = st.radio(
-        "Ver estadisticas de cargos nombrados desagregados por sexo",("Si", "No")
-    )
-    Detalle = st.radio('Ver detalle de cargos nombrados',("Si", "No"))
+# with st.sidebar:
+#     Genero = st.radio(
+#         "Ver estadisticas de cargos nombrados desagregados por sexo",("Si", "No")
+#     )
+#     Detalle = st.radio('Ver detalle de cargos nombrados',("Si", "No"))
 
 
 
