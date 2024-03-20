@@ -59,7 +59,7 @@ Ministerio = Ministerio['Ministerio'].tolist()
 
 #------------------------------------------------------------------------
 # valores
-total_nombrados=data.query("Estado=='Nombrado'").count()
+total_nombrados=data.query("Estado=='Nombrado'")['id_cargo'].count()
 
 #------------------------------------------------------------------------
 # Filtros
