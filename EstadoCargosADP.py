@@ -77,6 +77,7 @@ df_total=df_total.rename(columns={'id_cargo':'cargos'})
 
 graf_1 = px.bar(df_total, x='Estado', y='cargos', category_orders={'Estado': Estados_Orden})
 graf_1.update_xaxes(title_text=None,tickmode='linear', dtick=1,tickangle=-90)
+graf_1.update_traces(texttemplate='%{text}', textposition='outside')
 
 
 with st.container():
