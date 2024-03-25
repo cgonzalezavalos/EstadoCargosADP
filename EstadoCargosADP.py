@@ -137,7 +137,7 @@ with st.container():
     with col7:
         st.plotly_chart(graf_1,use_container_width=True)
 
-st.write(unique_nivel)   
+st.text(unique_nivel)   
 
 texto_foot_1="""Dirección Nacional del Servicio Civil, Morandé 115, P.9, Santiago, Chile."""
 texto_foot_2 = """Consultas a: <a href='mailto:cgonzalez@serviciocivil.cl'>cgonzalez@serviciocivil.cl</a>"""
