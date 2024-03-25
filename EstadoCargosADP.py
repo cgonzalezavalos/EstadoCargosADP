@@ -83,11 +83,11 @@ total_nombrados_mujeres=data.query("Estado=='Nombrado' & Sexo=='Mujer'")['id_car
 with st.container():
     col1,col2,col3=st.columns(3)
     with col1:
-        option1=st.selectbox('Ministerio',Ministerio)
+        option1=st.selectbox('Nivel Jerárquico',nivel)
     with col2:
-        option2=st.selectbox('Región',region)
+        option2=st.selectbox('Ministerio',Ministerio)
     with col3:
-        option3=st.selectbox('Nivel Jerárquico',nivel)
+        option3=st.selectbox('Región',region)
 
 
 df_total=data.groupby('Estado').agg({'id_cargo':'count'}).reset_index()
