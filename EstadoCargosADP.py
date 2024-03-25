@@ -74,9 +74,9 @@ Ministerio = Ministerio['Ministerio'].tolist()
 
 #------------------------------------------------------------------------
 # valores
-total_nombrados=data.query("Estado=='Nombrado'")['id_cargo'].count()
-total_nombrados_hombres=data.query("Estado=='Nombrado' & Sexo=='Hombre'")['id_cargo'].count()
-total_nombrados_mujeres=data.query("Estado=='Nombrado' & Sexo=='Mujer'")['id_cargo'].count()
+#total_nombrados=data.query("Estado=='Nombrado'")['id_cargo'].count()
+#total_nombrados_hombres=data.query("Estado=='Nombrado' & Sexo=='Hombre'")['id_cargo'].count()
+#total_nombrados_mujeres=data.query("Estado=='Nombrado' & Sexo=='Mujer'")['id_cargo'].count()
 
 #------------------------------------------------------------------------
 # Filtros
@@ -92,20 +92,44 @@ with st.container():
 
 if option1=='Todos' and option2=='Todos' and option3=='Todas':
     df_total=data.groupby('Estado').agg({'id_cargo':'count'}).reset_index()
+    total_nombrados=data.query("Estado=='Nombrado'")['id_cargo'].count()
+    total_nombrados_hombres=data.query("Estado=='Nombrado' & Sexo=='Hombre'")['id_cargo'].count()
+    total_nombrados_mujeres=data.query("Estado=='Nombrado' & Sexo=='Mujer'")['id_cargo'].count()
 if option1=='Todos' and option2=='Todos' and option3!='Todas':
     df_total=data.query("Region==@option3").groupby('Estado').agg({'id_cargo':'count'}).reset_index()
+    total_nombrados=data.query("Estado=='Nombrado' & Region==@option3")['id_cargo'].count()
+    total_nombrados_hombres=data.query("Estado=='Nombrado' & Sexo=='Hombre' & Region==@option3")['id_cargo'].count()
+    total_nombrados_mujeres=data.query("Estado=='Nombrado' & Sexo=='Mujer' & Region==@option3")['id_cargo'].count()
 if option1=='Todos' and option2!='Todos' and option3=='Todas':
     df_total=data.query("Ministerio==@option2").groupby('Estado').agg({'id_cargo':'count'}).reset_index()
+    total_nombrados=data.query("Estado=='Nombrado' & Ministerio==@option2")['id_cargo'].count()
+    total_nombrados_hombres=data.query("Estado=='Nombrado' & Sexo=='Hombre' & Ministerio==@option2")['id_cargo'].count()
+    total_nombrados_mujeres=data.query("Estado=='Nombrado' & Sexo=='Mujer' & Ministerio==@option2")['id_cargo'].count()
 if option1=='Todos' and option2!='Todos' and option3!='Todas':
     df_total=data.query("Ministerio==@option2 & Region==@option3").groupby('Estado').agg({'id_cargo':'count'}).reset_index()
+    total_nombrados=data.query("Estado=='Nombrado' & Ministerio==@option2 & Region==@option3")['id_cargo'].count()
+    total_nombrados_hombres=data.query("Estado=='Nombrado' & Sexo=='Hombre' & Ministerio==@option2 & Region==@option3")['id_cargo'].count()
+    total_nombrados_mujeres=data.query("Estado=='Nombrado' & Sexo=='Mujer' & Ministerio==@option2 & Region==@option3")['id_cargo'].count()
 if option1!='Todos' and option2=='Todos' and option3=='Todas':
     df_total=data.query("Nivel==@option1").groupby('Estado').agg({'id_cargo':'count'}).reset_index()
+    total_nombrados=data.query("Estado=='Nombrado' & Nivel==@option1")['id_cargo'].count()
+    total_nombrados_hombres=data.query("Estado=='Nombrado' & Sexo=='Hombre' & Nivel==@option1")['id_cargo'].count()
+    total_nombrados_mujeres=data.query("Estado=='Nombrado' & Sexo=='Mujer' & Nivel==@option1")['id_cargo'].count()
 if option1!='Todos' and option2=='Todos' and option3!='Todas':
     df_total=data.query("Nivel==@option1 & Region==@option3").groupby('Estado').agg({'id_cargo':'count'}).reset_index()
+    total_nombrados=data.query("Estado=='Nombrado' & Nivel==@option1 & Region==@option3")['id_cargo'].count()
+    total_nombrados_hombres=data.query("Estado=='Nombrado' & Sexo=='Hombre' & Nivel==@option1 & Region==@option3")['id_cargo'].count()
+    total_nombrados_mujeres=data.query("Estado=='Nombrado' & Sexo=='Mujer' & Nivel==@option1 & Region==@option3")['id_cargo'].count()
 if option1!='Todos' and option2!='Todos' and option3=='Todas':
     df_total=data.query("Nivel==@option1 & Ministerio==@option2").groupby('Estado').agg({'id_cargo':'count'}).reset_index()
+    total_nombrados=data.query("Estado=='Nombrado' & Nivel==@option1 & Ministerio==@option2")['id_cargo'].count()
+    total_nombrados_hombres=data.query("Estado=='Nombrado' & Sexo=='Hombre' & Nivel==@option1 & Ministerio==@option2")['id_cargo'].count()
+    total_nombrados_mujeres=data.query("Estado=='Nombrado' & Sexo=='Mujer' & Nivel==@option1 & Ministerio==@option2")['id_cargo'].count()
 if option1!='Todos' and option2!='Todos' and option3!='Todas':
     df_total=data.query("Nivel==@option1 & Ministerio==@option2 & Region==@option3").groupby('Estado').agg({'id_cargo':'count'}).reset_index()
+    total_nombrados=data.query("Estado=='Nombrado' & Nivel==@option1 & Ministerio==@option2 & Region==@option3")['id_cargo'].count()
+    total_nombrados_hombres=data.query("Estado=='Nombrado' & Sexo=='Hombre' & Nivel==@option1 & Ministerio==@option2 & Region==@option3")['id_cargo'].count()
+    total_nombrados_mujeres=data.query("Estado=='Nombrado' & Sexo=='Mujer' & Nivel==@option1 & Ministerio==@option2 & Region==@option3")['id_cargo'].count()
 
 
 #df_total=data.groupby('Estado').agg({'id_cargo':'count'}).reset_index()
