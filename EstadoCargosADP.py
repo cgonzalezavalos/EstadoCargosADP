@@ -90,7 +90,25 @@ with st.container():
         option3=st.selectbox('Región',region)
 
 
-df_total=data.groupby('Estado').agg({'id_cargo':'count'}).reset_index()
+if option1=='Todos' and option2=='Todos' and option3=='Todas':
+    df_total=data.groupby('Estado').agg({'id_cargo':'count'}).reset_index()
+if option1=='Todos' and option2=='Todos' and option3!='Todas':
+    df_total=data.query("Region==@option3").groupby('Estado').agg({'id_cargo':'count'}).reset_index()
+if option1=='Todos' and option2!='Todos' and option3=='Todas':
+    df_total=data.query("Ministerio==@option2").groupby('Estado').agg({'id_cargo':'count'}).reset_index()
+if option1=='Todos' and option2!='Todos' and option3!='Todas':
+    df_total=data.query("Ministerio==@option2 & Region==@option3").groupby('Estado').agg({'id_cargo':'count'}).reset_index()
+if option1!='Todos' and option2=='Todos' and option3=='Todas':
+    df_total=data.query("Nivel==@option1").groupby('Estado').agg({'id_cargo':'count'}).reset_index()
+if option1!='Todos' and option2=='Todos' and option3!='Todas':
+    df_total=data.query("Nivel==@option1 & Region==@option3").groupby('Estado').agg({'id_cargo':'count'}).reset_index()
+if option1!='Todos' and option2!='Todos' and option3=='Todas':
+    df_total=data.query("Nivel==@option1 & Ministerio==@option2").groupby('Estado').agg({'id_cargo':'count'}).reset_index()
+if option1!='Todos' and option2!='Todos' and option3!='Todas':
+    df_total=data.query("Nivel==@option1 & Ministerio==@option2 & Region==@option3").groupby('Estado').agg({'id_cargo':'count'}).reset_index()
+
+
+#df_total=data.groupby('Estado').agg({'id_cargo':'count'}).reset_index()
 df_total=df_total.rename(columns={'id_cargo':'cargos'})
 
 # gráfico 1 estado de cargos I y II nivel adscrito
