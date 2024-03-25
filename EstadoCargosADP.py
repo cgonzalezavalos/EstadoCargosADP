@@ -52,7 +52,7 @@ Estado_Color = {'Planificaci√≥n': 'orange', 'Convocatoria': 'blue','En Evaluaci√
 # listas valores filtros
 #------------------------------------------------------------------------
 unique_nivel = data['Nivel'].unique()
-nivel = pd.DataFrame({'Sexo': unique_nivel})
+nivel = pd.DataFrame({'Nivel': unique_nivel})
 nuevo_registro = pd.DataFrame({'Nivel': ['Todos']})
 nivel = pd.concat([nuevo_registro, nivel])
 nivel = nivel.reset_index(drop=True)
